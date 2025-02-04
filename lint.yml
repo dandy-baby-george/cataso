@@ -3,8 +3,7 @@ name: Lint and Format Check
 on:
   pull_request:
     branches:
-      - main
-      - develop
+      - '*'
 
 jobs:
   lint-and-format:
@@ -17,7 +16,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'  # 使いたいNode.jsのバージョンを指定
+        node-version: '23'
 
     - name: Install dependencies
       run: npm install
@@ -26,4 +25,4 @@ jobs:
       run: npx eslint . --fix --max-warnings=0
 
     - name: Run Prettier
-      run: npx prettier --check .  # コード整形をチェックする
+      run: npx prettier --check .
