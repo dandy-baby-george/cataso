@@ -7,9 +7,11 @@ WORKDIR /usr/src/cataso
 # 必要なファイルをコピー
 COPY nodejs/package*.json ./
 COPY nodejs/server.js .
+COPY .prettierrc .eslintrc.json ./
 
 # 依存関係をインストール
 RUN npm install
+RUN apk add --no-cache vim
 
 # アプリを公開するポート
 EXPOSE 3000

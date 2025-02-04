@@ -12,3 +12,15 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+process.on('SIGTERM', () => {
+  console.log('Shutting down gracefully...');
+
+  db.end((err) => {
+      if (err) {
+          console.error('Error closing database connection:', err);
+      }
+      console.log('Database connection closed.');
+      process.exit(0);
+  });
+});
