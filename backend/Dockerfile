@@ -2,12 +2,10 @@
 FROM node:23.7.0-alpine
 
 # 作業ディレクトリを作成
-WORKDIR /usr/src/cataso
+WORKDIR /usr/src/cataso/backend
 
 # 必要なファイルをコピー
-COPY nodejs/package*.json ./
-COPY nodejs/server.js .
-COPY .prettierrc .eslintrc.json ./
+COPY backend/ .
 
 # 依存関係をインストール
 RUN npm install
@@ -16,5 +14,4 @@ RUN apk add --no-cache vim
 # アプリを公開するポート
 EXPOSE 3000
 
-# コンテナ起動時のコマンド
-CMD ["npm", "start"]
+CMD npm start

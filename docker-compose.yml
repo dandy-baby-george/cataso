@@ -2,26 +2,25 @@ services:
   backend:
     build:
       context: .
-      dockerfile: ./nodejs/Dockerfile
+      dockerfile: ./backend/Dockerfile
     container_name: backend
-    working_dir: /usr/src/cataso
-    volumes:
-      - ./nodejs:/usr/src/cataso
+    working_dir: /usr/src/cataso/backend
     ports:
       - "3000:3000"
-    tty: true
+    # tty: true # 本番環境では不要
+
     environment:
-      - MYSQL_HOST=mysql
+      - MYSQL_HOST=db
       - MYSQL_USER=root
-      - MYSQL_PASSWORD=example
-      - MYSQL_DATABASE=testdb
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=cataso
     stop_grace_period: 60s
     depends_on:
-      - mysql
+      - db
 
   nginx:
     image: nginx:latest
-    container_name: nginx-proxy
+    container_name: nginx
     ports:
       - "80:80"
     volumes:
@@ -29,15 +28,15 @@ services:
     depends_on:
       - backend
 
-  mysql:
-    image: mysql:8.4
-    container_name: mysql-db
+  db:
+    image: mysql:8.0
+    container_name: db
     environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: testdb
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: cataso
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   mysql_data:
