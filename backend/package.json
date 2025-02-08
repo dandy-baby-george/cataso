@@ -18,7 +18,17 @@
   "homepage": "https://github.com/dandy-baby-george/cataso#readme",
   "description": "",
   "dependencies": {
+    "@types/node": "^22.13.1",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@types/eslint": "^9.6.1",
+    "@types/express": "^5.0.0",
+    "eslint": "^9.20.0",
+    "globals": "^15.14.0",
+    "typescript-eslint": "^8.23.0"
   }
 }
