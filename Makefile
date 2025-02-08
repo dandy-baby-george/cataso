@@ -9,4 +9,4 @@ exec-backend:
 exec-db:
 	docker compose exec db /bin/sh
 build:
-	docker compose build
+	docker compose build --no-cache

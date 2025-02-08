@@ -1,12 +1,16 @@
 services:
   backend:
     build:
-      context: .
-      dockerfile: ./backend/Dockerfile
-    container_name: backend
-    working_dir: /usr/src/cataso/backend
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - ./backend:/usr/src/cataso/backend
+      - /usr/src/cataso/backend/node_modules # node_modules はローカルと分離
+      - ./.env:/usr/src/cataso/.env
+    command: npm start
+    working_dir: /usr/src/cataso/backend
     # tty: true # 本番環境では不要
 
     environment:
@@ -20,9 +24,8 @@ services:
 
   nginx:
     image: nginx:latest
-    container_name: nginx
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
@@ -30,7 +33,6 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: db
     ports:
       - 3307:3306    
     environment:
