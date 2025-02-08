@@ -27,6 +27,10 @@ export default [
       complexity: ["warn", { max: 10 }], // 関数の複雑さを制限
       "prefer-const": ["error"], // 再代入されない変数に const を推奨
       // "import/no-unresolved": ["error"], // モジュールの解決をチェック
+      "padding-line-between-statements": [
+        "error",
+        { "blankLine": "always", "prev": "*", "next": "return" }
+      ],
     },
   }
 ];
