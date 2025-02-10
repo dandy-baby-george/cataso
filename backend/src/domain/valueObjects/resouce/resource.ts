@@ -1,7 +1,11 @@
-class Resource  {
+class Resource {
     private type: ResourceType;
 
-    constructor(type) {
+    constructor(type: ResourceType) {
         this.type = type;
+    }
+
+    public getType(): ResourceType {
+        return this.type;
     }
 }

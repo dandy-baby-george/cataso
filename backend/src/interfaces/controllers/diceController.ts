@@ -1,5 +1,5 @@
 export class DiceController {
-    public roll(req: Request, res: Response): void {
+    public roll(): void {
         const dice = new Dice();
 
         const number = dice.roll();
