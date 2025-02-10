@@ -9,7 +9,7 @@ const port = process.env.PORT;
 // const diceController = new DiceController();
 
 app.get('/', () => {
-  Response.json({ text: 'Hello, World!' });
+  Response.json({ text: 'Hello, World!!' });
 });
 
 // app.get('/api/dice', (req, res) => {

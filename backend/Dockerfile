@@ -9,8 +9,7 @@ RUN apk add --no-cache vim
 
 COPY . .
 
-RUN npx tsc
-
 EXPOSE 3000
 
 CMD npm start
+

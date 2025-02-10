@@ -9,10 +9,8 @@ services:
       - ./backend:/usr/src/cataso/backend
       - /usr/src/cataso/backend/node_modules # node_modules はローカルと分離
       - ./.env:/usr/src/cataso/.env
-    command: npm start
     working_dir: /usr/src/cataso/backend
     # tty: true # 本番環境では不要
-
     environment:
       - MYSQL_HOST=db
       - MYSQL_USER=root
