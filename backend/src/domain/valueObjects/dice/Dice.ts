@@ -1,4 +1,4 @@
-class Dice {
+export class Dice {
     private static readonly VALID_SIDES = [1, 2, 3, 4, 5, 6];
     private currentSide: number | null;
 

@@ -5,7 +5,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./backend:/usr/src/cataso/backend
-      - /usr/src/cataso/backend/node_modules # node_modules はローカルと分離
       - ./.env:/usr/src/cataso/.env
     working_dir: /usr/src/cataso/backend
     command: npm run dev
