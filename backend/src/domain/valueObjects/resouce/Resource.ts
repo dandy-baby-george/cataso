@@ -1,4 +1,6 @@
-class Resource {
+import { ResourceType } from './ResourceType';
+
+export class Resource {
     private type: ResourceType;
 
     constructor(type: ResourceType) {

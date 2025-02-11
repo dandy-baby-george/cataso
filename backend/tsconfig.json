@@ -1,30 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ES2016", // トランスパイル後のJavaScriptのバージョン
-    "module": "CommonJS", // Node.jsで標準的なモジュール形式
+    "baseUrl": "./src",
+    "module": "node16",
+    "moduleResolution": "node16",
+    "target": "es2024",
     "rootDir": "./src", // ソースコードのルートディレクトリ
     "outDir": "./dist", // コンパイル後の出力先ディレクトリ
-    // "strict": true, // 型の厳密なチェックを有効化
+    "strict": true, // 型の厳密なチェックを有効化
     "esModuleInterop": true, // ES6モジュールと互換性を持たせる
     "forceConsistentCasingInFileNames": true, // ファイル名の大文字小文字を厳密に区別
     "skipLibCheck": true, // ライブラリ型チェックをスキップ（コンパイル時間短縮）
-    // "resolveJsonModule": true, // JSONファイルのインポートを許可
-    // "typeRoots": [
-    //   "./node_modules/@types"
-    // ], // 型定義ファイルのルートディレクトリ
-    // "allowSyntheticDefaultImports": true, // デフォルトインポートを許可
-    // "moduleResolution": "node", // Node.js形式のモジュール解決
-    // "noImplicitAny": true, // 暗黙の`any`型を許容しない
+    "resolveJsonModule": true, // JSONファイルのインポートを許可
+    "typeRoots": ["./node_modules/@types"], // 型定義ファイルのルートディレクトリ
+    "allowSyntheticDefaultImports": true, // デフォルトインポートを許可
+    "noImplicitAny": true, // 暗黙の`any`型を許容しない
     // "noUnusedLocals": true, // 未使用の変数をエラーにする
     // "noUnusedParameters": true, // 未使用の引数をエラーにする
-    // "noFallthroughCasesInSwitch": true, // switch文のフォールスルーを禁止
-    // "useUnknownInCatchVariables": false // catchブロックでの暗黙的な`any`を許容
+    "noFallthroughCasesInSwitch": true, // switch文のフォールスルーを禁止
+    "useUnknownInCatchVariables": false // catchブロックでの暗黙的な`any`を許容
   },
-  "include": [
-    "src/**/*"
-  ], // コンパイル対象のファイル
-  "exclude": [
-    "node_modules",
-    "dist"
-  ] // 除外するディレクトリ
+  "include": ["src/**/*"], // コンパイル対象のファイル
+  "exclude": ["node_modules", "dist"] // 除外するディレクトリ
 }

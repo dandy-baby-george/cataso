@@ -5,14 +5,13 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./backend:/usr/src/cataso/backend
-      - /usr/src/cataso/backend/node_modules # node_modules はローカルと分離
-      - ./.env:/usr/src/cataso/.env
+      - ./.env:/usr/src/cataso/backend/.env
     working_dir: /usr/src/cataso/backend
     command: npm run dev
     expose:
       - 3000
     ports:
-      - "3000:3000"
+      - '3000:3000'
     stop_grace_period: 60s
     # tty: true # 本番環境では不要
     environment:
@@ -26,7 +25,7 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "8080:80"
+      - '8080:80'
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
@@ -35,7 +34,7 @@ services:
   db:
     image: mysql:8.0
     ports:
-      - 3307:3306    
+      - 3307:3306
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: cataso

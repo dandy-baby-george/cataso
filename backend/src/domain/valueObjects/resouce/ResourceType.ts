@@ -1,4 +1,4 @@
-enum ResourceType {
+export enum ResourceType {
     Brick,
     Grain,
     Lumber,
