@@ -9,4 +9,6 @@ RUN apk add --no-cache vim
 
 RUN npm install -g typescript nodemon
 
+EXPOSE 3000
+
 COPY . .
