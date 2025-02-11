@@ -2,13 +2,29 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 
-
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { files: ["**/*.{js,mjs,cjs,ts}"] },
-  { languageOptions: { globals: globals.browser } },
+  {
+    files: ["**/*.{js,mjs,cjs,ts}"],
+  },
+  {
+    languageOptions: {
+      globals: globals.browser,
+    },
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
+  {
+    env: {
+      node: true, // Node.js 環境を有効にする
+      browser: true, // 必要に応じてブラウザ環境も有効にする
+    },
+  },
+  {
+    globals: {
+      process: "readonly", // process をグローバルに認識させる
+    },
+  },
   {
     rules: {
       "no-unused-vars": ["error"], // 未使用の変数をエラーとして検出
@@ -29,8 +45,17 @@ export default [
       // "import/no-unresolved": ["error"], // モジュールの解決をチェック
       "padding-line-between-statements": [
         "error",
-        { "blankLine": "always", "prev": "*", "next": "return" }
+        { blankLine: "always", prev: "*", next: "return" },
       ],
+      "prettier/prettier": "error",
     },
-  }
+  },
+  {
+    extends: [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+    ],
+    plugins: ["@typescript-eslint", "prettier"],
+  },
 ];

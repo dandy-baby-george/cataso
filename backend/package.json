@@ -30,8 +30,11 @@
     "@types/eslint": "^9.6.1",
     "@types/express": "^5.0.0",
     "eslint": "^9.20.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
     "globals": "^15.14.0",
     "nodemon": "^3.1.9",
+    "prettier": "^3.5.0",
     "tsx": "^4.19.2",
     "typescript-eslint": "^8.23.0"
   }
