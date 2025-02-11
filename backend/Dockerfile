@@ -8,8 +8,3 @@ RUN npm install
 RUN apk add --no-cache vim
 
 COPY . .
-
-EXPOSE 3000
-
-CMD npm start
-
