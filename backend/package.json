@@ -9,7 +9,7 @@
     "build:watch": "npm run clean && tsc --watch",
     "start": "node dist/interfaces/Server.js",
     "dev": "nodemon --config nodemon.json && npm run build && npm run start",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "format-check": "prettier --check ."
   },
