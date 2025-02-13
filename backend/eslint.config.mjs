@@ -1,4 +1,4 @@
-import globals from 'globals';
+import typescriptParser from '@typescript-eslint/parser';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 
@@ -9,7 +9,7 @@ export default [
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
     languageOptions: {
-      parser: tsParser,
+      parser: typescriptParser,
     },
     rules: {
       'no-unused-vars': ['error'], // 未使用の変数をエラーとして検出
