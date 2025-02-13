@@ -9,7 +9,12 @@ export default [
   },
   {
     languageOptions: {
-      globals: globals.browser,
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        myCustomGlobal: 'readonly',
+      },
     },
   },
   pluginJs.configs.recommended,
