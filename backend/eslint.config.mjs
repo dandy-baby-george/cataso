@@ -20,11 +20,6 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    globals: {
-      process: 'readonly', // process をグローバルに認識させる
-    },
-  },
-  {
     rules: {
       'no-unused-vars': ['error'], // 未使用の変数をエラーとして検出
       'no-undef': ['error'], // 未定義の変数をエラーとして検出
