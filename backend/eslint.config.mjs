@@ -30,7 +30,6 @@ export default [
         'error',
         { blankLine: 'always', prev: '*', next: 'return' },
       ],
-      'prettier/prettier': 'error',
     },
   },
 ];
