@@ -1,13 +1,19 @@
 import typescriptParser from '@typescript-eslint/parser';
-import pluginJs from '@eslint/js';
+import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import prettier from 'eslint-plugin-prettier';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+  js.configs.recommended, // JavaScript の基本的なルール
+  ...tseslint.configs.recommended, // TypeScript の推奨ルール
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
     languageOptions: {
       parser: typescriptParser,
+    },
+    plugins: {
+      prettier: prettier, // Prettier プラグインを追加
     },
     rules: {
       'no-undef': ['warn'], // 未定義の変数をエラーとして検出
@@ -23,6 +29,8 @@ export default [
         'error',
         { blankLine: 'always', prev: '*', next: 'return' },
       ],
+      ...prettier.configs.recommended.rules, // Prettier の推奨ルールを適用
+      'prettier/prettier': 'error', // Prettier のフォーマットルールを ESLint エラーとして扱う
     },
   },
 ];
