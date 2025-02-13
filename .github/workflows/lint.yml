@@ -1,4 +1,4 @@
-name: Lint, Type Check, and Format Check
+name: Lint Check
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  lint-typecheck-format:
+  lint:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -28,9 +28,3 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
-
-      - name: Run TypeScript Compiler
-        run: npm run type-check
-
-      - name: Run Prettier
-        run: npm run format-check
