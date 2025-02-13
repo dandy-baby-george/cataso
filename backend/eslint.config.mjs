@@ -4,8 +4,6 @@ import tseslint from 'typescript-eslint';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
     languageOptions: {
@@ -34,11 +32,5 @@ export default [
       ],
       'prettier/prettier': 'error',
     },
-    extends: [
-      'eslint:recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:prettier/recommended',
-    ],
-    plugins: ['@typescript-eslint', 'prettier'],
   },
 ];
