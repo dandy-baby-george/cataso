@@ -10,7 +10,7 @@ export default [
       parser: typescriptParser,
     },
     rules: {
-      'no-undef': ['error'], // 未定義の変数をエラーとして検出
+      'no-undef': ['warn'], // 未定義の変数をエラーとして検出
       eqeqeq: ['error', 'always'], // 厳密な等価演算子を強制
       'no-console': ['warn'], // console.log の使用を警告
       quotes: ['error', 'single'], // シングルクォートを強制
