@@ -1,13 +1,13 @@
 import { ResourceType } from './ResourceType';
 
 export class Resource {
-    private type: ResourceType;
+  private type: ResourceType;
 
-    constructor(type: ResourceType) {
-        this.type = type;
-    }
+  constructor(type: ResourceType) {
+    this.type = type;
+  }
 
-    public getType(): ResourceType {
-        return this.type;
-    }
+  public getType(): ResourceType {
+    return this.type;
+  }
 }
