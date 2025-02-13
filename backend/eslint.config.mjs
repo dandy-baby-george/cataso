@@ -4,22 +4,13 @@ import tseslint from 'typescript-eslint';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  {
-    files: ['**/*.{js,mjs,cjs,ts}'],
-  },
-  {
-    languageOptions: {
-      sourceType: 'module',
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        myCustomGlobal: 'readonly',
-      },
-    },
-  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    files: ['**/*.{js,mjs,cjs,ts}'],
+    languageOptions: {
+      parser: tsParser,
+    },
     rules: {
       'no-unused-vars': ['error'], // 未使用の変数をエラーとして検出
       'no-undef': ['error'], // 未定義の変数をエラーとして検出
@@ -43,8 +34,6 @@ export default [
       ],
       'prettier/prettier': 'error',
     },
-  },
-  {
     extends: [
       'eslint:recommended',
       'plugin:@typescript-eslint/recommended',
