@@ -3,11 +3,34 @@ import { Dice } from '../../domain/valueObjects/dice/Dice';
 
 export class DiceController {
   public roll(req: Request, res: Response): void {
+    const quantityParam = req.query.quantity;
+
+    if (
+      typeof quantityParam !== 'string' ||
+      !quantityParam ||
+      !/^\d+$/.test(quantityParam) ||
+      parseInt(quantityParam) < 1
+    ) {
+      res.status(400).json({
+        error: `Invalid quantity parameter. Must be a number.${
+          req.query.quantity ? ` value: ${req.query.quantity}` : ''
+        }`,
+      });
+
+      return;
+    }
+
+    const quantity: number = parseInt(quantityParam);
     const dice = new Dice();
+    let sum: number = 0;
 
-    const number = dice.roll();
+    const numbers = Array.from({ length: quantity }, () => {
+      const diceNumber = dice.roll();
+      sum += diceNumber;
 
-    // レスポンス
-    res.json({ number: number });
+      return diceNumber;
+    });
+
+    res.json({ numbers, sum });
   }
 }

@@ -4,6 +4,7 @@
     "module": "node16",
     "moduleResolution": "node16",
     "target": "es2024",
+    "types": ["node"],
     "rootDir": "./src", // ソースコードのルートディレクトリ
     "outDir": "./dist", // コンパイル後の出力先ディレクトリ
     "strict": true, // 型の厳密なチェックを有効化
@@ -17,7 +18,8 @@
     // "noUnusedLocals": true, // 未使用の変数をエラーにする
     // "noUnusedParameters": true, // 未使用の引数をエラーにする
     "noFallthroughCasesInSwitch": true, // switch文のフォールスルーを禁止
-    "useUnknownInCatchVariables": false // catchブロックでの暗黙的な`any`を許容
+    "useUnknownInCatchVariables": false, // catchブロックでの暗黙的な`any`を許容
+    "sourceMap": true
   },
   "include": ["src/**/*"], // コンパイル対象のファイル
   "exclude": ["node_modules", "dist"] // 除外するディレクトリ
