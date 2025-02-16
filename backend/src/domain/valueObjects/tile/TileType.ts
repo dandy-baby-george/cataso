@@ -1,4 +1,4 @@
-export enum ResourceType {
+export enum TileType {
   Brick,
   Grain,
   Lumber,
