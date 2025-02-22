@@ -1,9 +1,7 @@
-export enum TileType {
+export enum SpecialType {
   Brick,
   Grain,
   Lumber,
   Ore,
   Wool,
-  Desert,
-  Sea,
 }
